@@ -73,4 +73,6 @@ func (wp *WkPool) Stop() {
 	for _, wk := range wp.workers {
 		wk.stopChan <- true
 	}
+
+	close(wp.jobsChan)
 }
